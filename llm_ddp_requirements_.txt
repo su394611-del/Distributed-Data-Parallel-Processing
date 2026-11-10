@@ -1,0 +1,6 @@
+# Install a platform-appropriate CUDA-enabled PyTorch first.
+# This file is needed only for --model qwen; --model tiny only needs PyTorch.
+transformers==5.22.2
+peft
+accelerate
+safetensors
