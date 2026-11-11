@@ -1,6 +1,15 @@
-# Install a platform-appropriate CUDA-enabled PyTorch first.
-# This file is needed only for --model qwen; --model tiny only needs PyTorch.
+# Python 3.10+; Python 3.12 recommended for Windows/Conda.
+# Install a CUDA-enabled build of PyTorch separately if GPU training is needed.
+# Tiny Transformer: PyTorch alone is sufficient.
+torch>=2.6,<3.0
+
+# Required for --model qwen (pretrained Qwen2.5-0.5B-Instruct + LoRA).
 transformers==5.22.2
-peft
-accelerate
-safetensors
+peft>=0.15
+accelerate>=1.0
+safetensors>=0.4
+
+# Run the standalone notebook locally in Jupyter/VS Code.
+# Google Colab and Kaggle include their own notebook interface.
+ipykernel>=6.29
+jupyterlab>=4.0
