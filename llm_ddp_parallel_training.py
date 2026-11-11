@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-"""Single/multi-GPU data-parallel language-model training demo.
+
+# """Single/multi-GPU data-parallel language-model training demo.
 
 Modes
 -----
@@ -10,7 +10,7 @@ B) Real pretrained Qwen 0.5B LoRA tuning (requires transformers, peft):
    python -m torch.distributed.run --standalone --nproc_per_node=2 llm_ddp_parallel_training.py --model qwen --max-steps 8
 
 If only one GPU is available, use --nproc_per_node=1 (or plain python).
-DistributedSampler divides examples, DDP synchronizes gradients. DDP does not pool GPU memory.
+DistributedSampler divides examples; DDP synchronizes gradients. DDP does not pool GPU memory.
 """
 from __future__ import annotations
 
@@ -29,15 +29,15 @@ from torch.utils.data import DataLoader, Dataset, DistributedSampler
 
 # Examples are illustrative public-domain-style sentences, not a performance benchmark.
 EXAMPLES = [
-    "Transformers use self attention to model the relationships between tokens.",
+    "Transformers use self-attention to model the relationships between tokens.",
     "Distributed data parallel training places a model replica on each GPU.",
     "A distributed sampler sends different training records to each rank.",
-    "Gradient all reduce synchronizes model updates across the workers.",
+    "Gradient all-reduce synchronizes model updates across the workers.",
     "Causal language models predict the next token in a sequence.",
-    "LoRA fine tuning updates small low rank adaptation matrices.",
+    "LoRA fine-tuning updates small low-rank adaptation matrices.",
     "The optimizer applies parameter updates after gradient computation.",
     "GPU memory usage grows with batch size and sequence length.",
-    "The tokenizer transforms human readable strings into integer tokens.",
+    "The tokenizer transforms human-readable strings into integer tokens.",
     "A CUDA GPU can accelerate matrix multiplications and attention.",
     "The validation split evaluates generalization to unseen examples.",
     "A reproducible experiment reports its model and dataset versions.",
