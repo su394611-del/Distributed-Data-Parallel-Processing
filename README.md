@@ -2,7 +2,7 @@
 
 A Runnable demonstration of **data-parallel language-model training** with PyTorch **DistributedDataParallel (DDP)**. Run a small Transformer **without downloading a model**, or fine-tune **Qwen2.5-0.5B-Instruct** with LoRA on a CUDA GPU. A standalone Jupyter notebook recreates the training script and launches it with `torchrun`.
 
-> **Scope:** This is a training demonstration, not an LLM serving application. The small Transformer is **not** an LLM, and the demonstration corpus is **not** a meaningful training benchmark. Multi-GPU Qwen runs are examples, not verified performance claims.
+> **Scope:** This is a training demonstration, not an LLM serving application. Multi-GPU Qwen runs are examples, not verified performance claims.
 
 ## Features
 
@@ -143,7 +143,7 @@ The **global batch size** in this example is `batch_size × world_size`. No grad
 
 ## How DDP works
 
-1. `torchrun` launches N processes with environment variables `WORLD_SIZE`, `RANK` and `LOCAL_RANK`.
+1. `torchrun` launches N processes with environment variables `WORLD_SIZE`, `RANK,` and `LOCAL_RANK`.
 2. Each rank initializes a process group (Gloo for CPU/Windows, NCCL for Linux CUDA).
 3. `DistributedSampler` gives each rank a different partition of the input examples.
 4. Each rank computes a local forward pass, loss, and backward pass.
