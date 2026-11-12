@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,44 +5,112 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1">
 
-  <title>Distributed Data Parallel LLM Training | PyTorch</title>
+  <title>
+    Distributed LLM Training |
+    PyTorch DDP, Qwen and LoRA
+  </title>
 
   <meta name="description"
-        content="Distributed LLM training with PyTorch DDP,
-        Qwen2.5 LoRA, multi-GPU training,
-        gradient synchronization and
-        Transformer training examples.">
+        content="Distributed Transformer training
+        using PyTorch DistributedDataParallel,
+        torchrun, multi-GPU data parallelism,
+        AllReduce gradient synchronization,
+        Qwen2.5 LoRA and Hugging Face PEFT.">
 
   <meta name="robots" content="index, follow">
+
+  <link rel="canonical"
+        href="https://su394611-del.github.io/Distributed-Data-Parallel-Processing/">
 </head>
 
 <body>
-  <h1>Distributed Data Parallel LLM Training</h1>
+  <header>
+    <h1>
+      Distributed LLM Training
+      with PyTorch DDP
+    </h1>
 
-  <p>
-    Distributed language model training using
-    PyTorch DistributedDataParallel (DDP),
-    Transformers and Qwen LoRA.
-  </p>
+    <p>
+      An educational AI engineering project
+      demonstrating distributed Transformer
+      training, data parallelism and
+      Qwen2.5 LoRA fine-tuning.
+    </p>
+  </header>
 
-  <h2>Project Features</h2>
-  <ul>
-    <li>Multi-process DDP training</li>
-    <li>Gradient synchronization with AllReduce</li>
-    <li>Custom causal Transformer model</li>
-    <li>Qwen2.5 LoRA fine-tuning</li>
-    <li>CPU and CUDA training modes</li>
-  </ul>
+  <main>
+    <h2>Project Features</h2>
+    <ul>
+      <li>PyTorch DistributedDataParallel (DDP)</li>
+      <li>Distributed training with torchrun</li>
+      <li>Multi-process training architecture</li>
+      <li>CPU and CUDA execution modes</li>
+      <li>Gloo and NCCL communication backends</li>
+      <li>Gradient synchronization with AllReduce</li>
+      <li>DistributedSampler for data partitioning</li>
+      <li>Custom causal Transformer implementation</li>
+      <li>Multi-GPU data parallelism</li>
+      <li>Qwen2.5-0.5B-Instruct fine-tuning</li>
+      <li>Low-Rank Adaptation (LoRA)</li>
+      <li>Hugging Face Transformers and PEFT</li>
+      <li>Model checkpoint and adapter saving</li>
+      <li>Custom training corpus support</li>
+      <li>Python and Jupyter Notebook examples</li>
+    </ul>
 
-  <h2>Source Code</h2>
-  <a href="https://github.com/su394611-del/Distributed-Data-Parallel-Processing">
-    View GitHub Repository
-  </a>
+    <h2>Distributed Training Architecture</h2>
+    <p>
+      PyTorch torchrun launches multiple worker
+      processes. Each process maintains a model
+      replica and processes a partition of the
+      training data. DDP synchronizes gradients
+      across workers before optimizer updates.
+    </p>
 
-  <h2>Architecture Documentation</h2>
-  <a href="https://github.com/su394611-del/Distributed-Data-Parallel-Processing/wiki">
-    View GitHub Wiki
-  </a>
+    <h2>Tiny Transformer Training</h2>
+    <p>
+      The project includes a small causal
+      Transformer implemented in PyTorch
+      for educational training experiments.
+      CPU demonstrations support multiple
+      processes with the Gloo backend.
+    </p>
+
+    <h2>Qwen2.5 LoRA Fine-Tuning</h2>
+    <p>
+      A separate training mode demonstrates
+      parameter-efficient fine-tuning using
+      Qwen2.5-0.5B-Instruct and LoRA adapters.
+    </p>
+
+    <h2>Multi-GPU Training</h2>
+    <p>
+      DDP maintains a separate model replica
+      on each GPU and synchronizes gradients.
+      GPU memory is not pooled across devices.
+    </p>
+
+    <h2>Validation and Limitations</h2>
+    <p>
+      The small Transformer CPU demonstrations
+      have been tested. Physical multi-GPU
+      training and Qwen CUDA performance
+      are not established benchmarks.
+    </p>
+
+    <h2>Source Code</h2>
+    <p>
+      <a href="https://github.com/su394611-del/Distributed-Data-Parallel-Processing">
+        View GitHub Repository
+      </a>
+    </p>
+
+    <h2>Architecture Documentation</h2>
+    <p>
+      <a href="https://github.com/su394611-del/Distributed-Data-Parallel-Processing/wiki">
+        View GitHub Wiki
+      </a>
+    </p>
+  </main>
 </body>
 </html>
-
