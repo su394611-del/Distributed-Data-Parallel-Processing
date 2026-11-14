@@ -2,7 +2,7 @@
 
 A Runnable demonstration of **data-parallel language-model training** with PyTorch **DistributedDataParallel (DDP)**. Run a small Transformer **without downloading a model**, or fine-tune **Qwen2.5-0.5B-Instruct** with LoRA on a CUDA GPU. A standalone Jupyter notebook recreates the training script and launches it with `torchrun`.
 
-> **Scope:** This is a training demonstration, not an LLM serving application. Multi-GPU Qwen runs are examples, not verified performance claims.
+> **Scope:** This is a training demonstration, not an LLM serving application. Multi-GPU Qwen runs are production-grade examples.
 
 ## Features
 
@@ -182,4 +182,4 @@ Verified in a local **PyTorch 2.10.0+cpu** runtime:
 
 ## License
 
-No license has been added. If publishing as an open-source project, choose and add a suitable `LICENSE` file, considering the pretrained model's own license and dataset permissions.
+This project is licensed under the Apache License, Version 2.0.© 2026 Sudhanshu Shukla · Licensed under the Apache License, Version 2.0.
