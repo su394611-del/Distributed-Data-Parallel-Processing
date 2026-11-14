@@ -34,6 +34,7 @@ The notebook is **self-contained**: it writes the full Python training file and 
 - **CUDA mode:** a compatible NVIDIA driver and **CUDA-enabled PyTorch**; check with `torch.cuda.is_available()`.
 - **Two GPUs:** only if two NVIDIA GPUs are available to your runtime (for example, a suitable Kaggle dual-GPU session or a dual-GPU Linux workstation).
 - **Google Colab:** commonly provides **one** GPU; use `--nproc_per_node=1` unless `torch.cuda.device_count()` reports 2 or more.
+- **Kaggle :** commonly provides **two** GPUs; use `--nproc_per_node=1` unless `torch.cuda.device_count()` reports 2 or more.
 
 > DDP makes a **complete model replica on each GPU**. Two 4 GB GPUs do **not** provide an 8 GB combined model-memory pool. Larger models may require FSDP / tensor parallelism instead.
 
