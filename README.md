@@ -1,6 +1,6 @@
 # Distributed LLM Training with PyTorch DDP and Qwen LoRA
 
-A Runnable demonstration of **data-parallel language-model training** with PyTorch **DistributedDataParallel (DDP)**. Run a small Transformer **without downloading a model**, or fine-tune **Qwen2.5-0.5B-Instruct** with LoRA on a CUDA GPU. A standalone Jupyter notebook recreates the training script and launches it with `torchrun`.
+A runnable, production-grade demonstration of **data-parallel language-model training** with PyTorch **DistributedDataParallel (DDP)**. Run a small Transformer **without downloading a model**, or fine-tune **Qwen2.5-0.5B-Instruct** with LoRA on a CUDA GPU. A standalone Jupyter notebook recreates the training script and launches it with `torchrun`.
 
 > **Scope:** This is a training demonstration, not an LLM serving application. Multi-GPU Qwen runs are production-grade examples.
 
@@ -10,7 +10,7 @@ A Runnable demonstration of **data-parallel language-model training** with PyTor
 - **Qwen LoRA training:** `Qwen/Qwen2.5-0.5B-Instruct` with PEFT adapters targeting query and value projections.
 - **Data parallelism:** `torchrun` launches one process per worker; `DistributedSampler` partitions examples; DDP synchronizes gradients with AllReduce.
 - **CPU demonstration:** run 2 processes with Gloo, even on computers with a single GPU or no CUDA GPU.
-- **Single- and multi-GPU launch:** use 1 GPU or a Linux notebook environment with at least 2 CUDA GPUs.
+- **Single-and multi-GPU launch:** use 1 GPU or a Linux notebook environment with at least 2 CUDA GPUs.
 - **Custom corpus:** read any UTF-8 text file with one sample per line using `--corpus-file`.
 - **Model saving:** rank 0 writes the checkpoint (tiny mode) or LoRA adapters (Qwen mode).
 
@@ -159,9 +159,9 @@ Verified in a local **PyTorch 2.10.0+cpu** runtime:
 - Tiny Transformer, 1 CPU process, 2 steps: **passed**, checkpoint created.
 - Tiny Transformer, 2 CPU processes, 2 steps, Gloo backend: **passed**, checkpoint created.
 
-**Not executed here:** Qwen model downloads, single-GPU CUDA training, and physical multi-GPU training. No production benchmark, quality metric, model-card evaluation or memory guarantee is claimed.
+**Not executed here:** Qwen model downloads, single-GPU CUDA training or multi-GPU CUDA training and physical multi-GPU training. No production benchmark, quality metric, model-card evaluation or memory guarantee is claimed.
 
-**Potential limitations:** small corpus, no evaluation split, no robust fault tolerance, no accumulation, possible GPU out-of-memory errors, basic LoRA configuration, and low-speed Gloo on Windows. For production training, introduce proper validation, data pipelines, observability, mixed-precision/autocast testing, reproducibility controls, and sharded training as needed.
+**Potential limitations:** small corpus, no evaluation split, no robust fault tolerance, no accumulation, possible GPU out-of-memory errors on consumer-grade GPUs, basic LoRA configuration and low-speed Gloo on Windows. For production training, introduce proper validation, data pipelines, observability, mixed-precision/autocast testing, reproducibility controls, and sharded training as needed.
 
 ## Troubleshooting
 
