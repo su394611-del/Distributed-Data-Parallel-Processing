@@ -65,12 +65,29 @@ a{color:inherit;text-decoration:none}a:hover{color:#d9e4ff}button{font:inherit;c
 @media (max-width:880px){.ss-contact-inner{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.ss-contact-frame{transition:none}}
 </style>
+
+<style id="ai-lab-home-navigation">
+/* Shared return-to-home control, styled after MedSparse Healthcare. */
+.ai-lab-return-zone{box-sizing:border-box;width:min(calc(100% - 40px),1180px);margin:14px auto 0;display:flex;justify-content:flex-end;align-items:center;position:relative;z-index:1}
+.ai-lab-home-pill{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px 10px 13px;border:1px solid #3c5975;border-radius:999px;background:#122338;color:#eef5ff!important;font:800 13px/1.2 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.01em;text-decoration:none!important;white-space:nowrap;touch-action:manipulation;transition:border-color .15s,background-color .15s}
+.ai-lab-home-pill:hover{border-color:#7be2f0;background:#163049;color:#eef5ff!important}
+.ai-lab-home-pill:focus-visible{outline:3px solid #95eaff;outline-offset:3px}
+.ai-lab-home-pill svg{display:block;flex:none;width:18px;height:18px;max-width:none;color:#7be2f0}
+@media(max-width:600px){.ai-lab-return-zone{width:calc(100% - 32px);margin:12px auto 0;justify-content:flex-start}.ai-lab-home-pill{min-height:44px;padding:10px 14px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){.ai-lab-home-pill{transition:none}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap top-inner"><a class="brand" href="https://su394611-del.github.io/" aria-label="Visit AI engineering portfolio"><span class="logo" aria-hidden="true">DDP</span><span class="brandtext"><b>Sudhanshu Shukla</b><small>AI / DISTRIBUTED TRAINING</small></span></a>
 <nav class="nav" aria-label="Primary"><a href="#features">Capabilities</a><a href="#architecture">Architecture</a><a href="#workflows">Training modes</a><a href="#quickstart">Quickstart</a><a class="nav-cta" href="https://github.com/su394611-del/Distributed-Data-Parallel-Processing" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></nav>
 <details class="mobilemenu"><summary aria-label="Open website menu">Menu ☰</summary><nav class="mobilelinks" aria-label="Mobile navigation"><a href="#features">Capabilities</a><a href="#architecture">Architecture</a><a href="#workflows">Training modes</a><a href="#quickstart">Quickstart</a><a href="#resources">Source &amp; docs</a><a href="https://github.com/su394611-del/Distributed-Data-Parallel-Processing" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></details></div></header>
+
+<div class="ai-lab-return-zone" role="navigation" aria-label="Return to AI Lab">
+  <a class="ai-lab-home-pill" href="https://su394611-del.github.io/" aria-label="Return to AI Lab homepage">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg><span>AI Lab home</span>
+  </a>
+</div>
 <main id="main">
 <section class="hero wrap" aria-labelledby="page-title"><div><div class="eyebrow">DISTRIBUTED AI ENGINEERING / PYTORCH</div><h1 id="page-title">Train across processes.<br><em>Understand every gradient.</em></h1><p class="lead">An inspectable implementation of PyTorch DistributedDataParallel: learn how <strong>torchrun</strong> launches workers, how <strong>DistributedSampler</strong> partitions training examples, and how gradient synchronization supports causal Transformer training and Qwen2.5 LoRA experiments.</p><div class="actions"><a class="btn btn-main" href="#quickstart">Run the project ↗</a><a class="btn" href="https://github.com/su394611-del/Distributed-Data-Parallel-Processing" target="_blank" rel="noopener noreferrer">Explore source ↗</a></div><p class="subnote">Code and notebook are public. Two-process CPU execution is reported as tested; GPU/Qwen configurations are example pathways, not published performance benchmarks.</p></div>
 <div class="hero-board" role="img" aria-label="Conceptual DDP system: torchrun starts two worker processes. Each process has its own model replica and data shard. Gradients synchronize with AllReduce."><div class="board-head"><span>DATA PARALLEL TRAINING / OVERVIEW</span><span class="online">PROCESS-GROUP MODEL</span></div><div class="starter">torchrun · world_size = 2</div><div class="line-arrow" aria-hidden="true">↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓</div><div class="workers"><div class="worker"><strong>RANK 0 <span>CPU / GPU 0</span></strong><div class="model">Model replica A</div><small>Data shard A<br>Forward → loss → backward</small></div><div class="worker"><strong>RANK 1 <span>CPU / GPU 1</span></strong><div class="model">Model replica B</div><small>Data shard B<br>Forward → loss → backward</small></div></div><div class="line-arrow" aria-hidden="true">↘ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↙</div><div class="reduce">DDP · GRADIENT ALLREDUCE <small>Synchronize gradients → optimizer step</small></div><div class="board-foot"><span>TORCH DISTRIBUTED</span><span>GLOO / NCCL</span><span>DATA PARALLELISM</span></div></div></section>
