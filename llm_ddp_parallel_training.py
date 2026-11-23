@@ -138,7 +138,7 @@ def main():
         if cuda:
             torch.cuda.manual_seed_all(2026)
         if args.corpus_file:
-            texts = [x.strip() for x in args.corpus_file.read_text(encoding="utf-8").splitlines() if x.strip()]
+            texts = [x.strip() for x in args.corpus_file.read_text(encoding="utf-8-sig").splitlines() if x.strip()]
             if not texts:
                 raise ValueError("No nonempty lines in corpus file")
         else:
